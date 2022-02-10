@@ -4,10 +4,10 @@ redis = redis.Redis(
     port='6379')
 
 OTP_Driver = redis.get("OTP_Driver")
-print(OTP_Driver)
+print("OTP for Driver: ", OTP_Driver)
 
 OTP_Customer = redis.get("OTP_Customer")
-print(OTP_Customer)
+print("OTP for Customer: ", OTP_Customer)
 
 if OTP_Driver == OTP_Customer != None:
     print("OTP Verification Successfull")

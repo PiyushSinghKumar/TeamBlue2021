@@ -22,12 +22,19 @@ for i in range(6):
     index = math.floor(random.random() * 10)
     random_str += str(digits[index])
 
-print(random_str)
 
+OrderDeliver = input("Are you waiting for an OTP? Y/N: ")
+if OrderDeliver == "Y":
+    # Storing OTP in redis server
+    redis.set("OTP_Driver", random_str)
+    redis.expire("OTP_Driver", 600)
 
-# Storing OTP in redis server
-redis.set("OTP_Driver", random_str)
-redis.expire("OTP_Driver", 600)
+    redis.set("OTP_Customer", random_str)
+    redis.expire("OTP_Customer", 600)
+    print("OTP: ", random_str)
 
-redis.set("OTP_Customer", random_str)
-redis.expire("OTP_Customer", 600)
+elif OrderDeliver == "N":
+    print("Please wait for the order to be delivered")
+
+else:
+    print("Please enter only Y or N")
