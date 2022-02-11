@@ -56,12 +56,6 @@ print(data)
 
 #Delete Discount
 collection_product.delete_one({"Products.Books":"6256"})
-##################################################################################################
-def get_discount():
-    for doc in collection_product.find({"Products.Books.Title":"LS"},{"Products.Books.Product_ID" : 0 ,"Products.Books.Discount": 1 }):
-        print(doc)
-get_discount()
-
 
 ##################################################################################################
 #update mobile discount on Selling Price
