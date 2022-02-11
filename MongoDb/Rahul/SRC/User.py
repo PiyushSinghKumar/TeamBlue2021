@@ -32,7 +32,8 @@ def user():
                  print("WAKANDAFOREVER !!")
              else:
                  print("sorry you are not eligible good bye")
-
+    else :
+        print("Sorry to see you go :(")
 
 
 
